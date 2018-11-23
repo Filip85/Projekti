@@ -1,0 +1,6 @@
+c:\users\gajari\documents\visual studio 2015\Projects\Kompleksni3\Kompleksni3\bin\Debug\Kompleksni3.exe.config
+c:\users\gajari\documents\visual studio 2015\Projects\Kompleksni3\Kompleksni3\bin\Debug\Kompleksni3.exe
+c:\users\gajari\documents\visual studio 2015\Projects\Kompleksni3\Kompleksni3\bin\Debug\Kompleksni3.pdb
+c:\users\gajari\documents\visual studio 2015\Projects\Kompleksni3\Kompleksni3\obj\Debug\Kompleksni3.csprojResolveAssemblyReference.cache
+c:\users\gajari\documents\visual studio 2015\Projects\Kompleksni3\Kompleksni3\obj\Debug\Kompleksni3.exe
+c:\users\gajari\documents\visual studio 2015\Projects\Kompleksni3\Kompleksni3\obj\Debug\Kompleksni3.pdb

@@ -1,0 +1,400 @@
+﻿<!doctype html>
+
+<html>
+
+
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+
+<style>
+    
+    table
+    {
+              border-collapse: collapse;
+    }
+    table th
+    { 
+		text-align: center;
+    }   
+    
+    table td
+    {
+		border: 1px solid #e3e3e3;
+		padding: 5px 8px;
+                background-color: #808080;
+                color: #FFF;
+    }
+	.racunanje1{
+		
+		border: 1px solid; 
+		padding: 5px 5px;
+                background-color: #808080;
+                color: #FFF;
+	}
+</style>
+
+
+
+
+
+<script type="text/JavaScript">
+<!--
+
+window.onload=postavi_broj_eksperimenata;		//kada se pokrene webstranica, automaski da pokrene funkciju postavi_broj_eksperimenata, a default-na vrijednost select box-a za ekperimente je 1
+
+function floatProvjera(inputBroj){
+		var filter= /^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$/ ;
+		if(inputBroj.match(filter)){
+			return true;
+		}
+		else{
+			return false;
+		}
+}
+
+
+function postavi_broj_eksperimenata(){
+
+		broj_eksperimenata=document.getElementById("eksperiment").value;
+		console.log("Vrijednost eksperimenata je:"+" "+broj_eksperimenata);
+		
+		
+
+		//Uključivanje-isključivanje kućica prvog stupca za unos elemenata
+		for(i=broj_eksperimenata;i<10;i++){
+								
+				document.getElementById("unosX"+i).setAttribute("disabled", true);
+				document.getElementById("unosY"+i).setAttribute("disabled", true);
+				document.getElementById("citanje_umnozakXY"+i).setAttribute("disabled",true);
+				document.getElementById("citanje_x2"+i).setAttribute("disabled",true);
+				document.getElementById("citanje_y2"+i).setAttribute("disabled",true);
+				
+				document.getElementById("unosX"+i).value="";
+				document.getElementById("unosY"+i).value="";
+				document.getElementById("citanje_umnozakXY"+i).value="";
+				document.getElementById("citanje_x2"+i).value="";
+				document.getElementById("citanje_y2"+i).value="";
+				
+		}		
+		
+		for(i=0;i<broj_eksperimenata;i++){
+						
+							if(document.getElementById("unosX"+i).getAttribute("disabled")=='true'){
+									document.getElementById("unosX"+i).disabled=false;			
+							}
+							if(document.getElementById("unosY"+i).getAttribute("disabled")=='true'){
+									document.getElementById("unosY"+i).disabled=false;
+							}
+							if(document.getElementById("citanje_umnozakXY"+i).getAttribute("disabled")=='true'){
+									document.getElementById("citanje_umnozakXY"+i).disabled=false;
+							}
+							if(document.getElementById("citanje_x2"+i).getAttribute("disabled")=='true'){
+									document.getElementById("citanje_x2"+i).disabled=false;
+							}
+							if(document.getElementById("citanje_y2"+i).getAttribute("disabled")=='true'){
+									document.getElementById("citanje_y2"+i).disabled=false;
+							}
+		}
+		
+}
+
+
+
+
+
+function tipka_izracunaj(){
+		
+				for(i=0; i<broj_eksperimenata;i++){
+				
+					if(floatProvjera(document.getElementById("unosX"+i).value)==false){
+							alert("Niste unijeli brojčane vrijednosti odvojene decimalnom točkom. \n                                Molimo provjerite unos.");
+							break;
+					}
+					
+					if(floatProvjera(document.getElementById("unosY"+i).value)==false){
+							alert("Niste unijeli brojčane vrijednosti odvojene decimalnom točkom. \n                                Molimo provjerite unos.");
+							break;
+					}
+				
+					inputArrayX[i]=parseFloat(document.getElementById("unosX"+i).value);
+					inputArrayY[i]=parseFloat(document.getElementById("unosY"+i).value);
+				}
+				
+
+				
+				for(i=0; i<broj_eksperimenata;i++){
+					sumaX+=inputArrayX[i];
+					sumaY+=inputArrayY[i];
+					umnozakXY=inputArrayX[i]*inputArrayY[i];	
+					suma_umnozakXY+=umnozakXY;
+					
+					umnozakX2=inputArrayX[i]*inputArrayX[i];			//X^2
+					suma_x2+=umnozakX2;								//suma X^2; "suma iks kvadrata"
+					
+					umnozakY2=inputArrayY[i]*inputArrayY[i];
+					suma_y2+=umnozakY2;
+					
+					
+					
+					
+					document.getElementById("citanje_umnozakXY"+i).value=umnozakXY.toString();	//umnozak: x*y
+					document.getElementById("citanje_x2"+i).value=umnozakX2.toString();
+					document.getElementById("citanje_y2"+i).value=umnozakY2.toString();
+
+				}
+				
+				document.getElementById("citanje_sumaX").value=sumaX.toString();
+				document.getElementById("citanje_sumaY").value=sumaY.toString();
+				document.getElementById("citanje_suma_umnozakXY").value=suma_umnozakXY.toString();
+				document.getElementById("citanje_suma_umnozakX2").value=suma_x2.toString();
+				document.getElementById("citanje_suma_umnozakY2").value=suma_y2.toString();
+				document.getElementById("citanje_suma2_x").value=Math.pow(sumaX,2);
+				document.getElementById("citanje_suma2_y").value=Math.pow(sumaY,2);
+				
+				
+				
+				a=((broj_eksperimenata*suma_umnozakXY)-(sumaX*sumaY))/((broj_eksperimenata*suma_x2)-(Math.pow(sumaX,2)));
+				b=((suma_x2*sumaY)-(sumaX*suma_umnozakXY))/(broj_eksperimenata*suma_x2-Math.pow(sumaX,2));
+				
+			
+				document.getElementById("citanje_koeficijenta_smjera_regresijskog_pravca").value=a.toString();
+				document.getElementById("citanje_odsjecka_pravca_na_osi_ordinata").value=b.toString();
+				
+				sigmaA=Math.sqrt(  (1/(broj_eksperimenata-2))	* (	 (   (broj_eksperimenata*suma_y2)- Math.pow(sumaY,2) )/(  (broj_eksperimenata*suma_x2)-Math.pow(sumaX,2))	- Math.pow(a,2)	)				);
+				sigmaY= (sigmaA/broj_eksperimenata)*Math.sqrt(broj_eksperimenata*suma_x2);
+				korelacija= ((broj_eksperimenata*suma_umnozakXY)-(sumaX*sumaY))/Math.sqrt(	  (  (broj_eksperimenata*suma_x2)-Math.pow(sumaX,2)  ) *  ( (broj_eksperimenata*suma_y2)-Math.pow(sumaY,2)  )		  );
+				
+				
+				document.getElementById("citanje_mjera_nepouzdanosti_za_koeficijent_smjera_pravca").value=sigmaA.toString();
+				document.getElementById("citanje_mjera_nepouzdanosti_za_odsječak_na_osi_ordinata").value=sigmaY.toString();
+				document.getElementById("citanje_koeficijent_korelacije").value=korelacija.toString();
+				
+				
+				
+				sumaX=0; sumaY=0;
+				umnozakXY=0; suma_umnozakXY=0;
+				suma_x2=0; umnozakX2=0;
+				suma_y2=0; umnozakY2=0;	
+				
+				
+		
+}
+//-->
+</script>
+
+
+</head>
+
+
+
+<body style="background-color:#f7f7f7">
+
+
+
+
+
+
+<script type="text/JavaScript">
+<!--
+//DEFINIRANJE LOKALNIH VARIJABLI ZA IZRAČUNAVANJE
+
+var i=0,j=0;
+var inputArrayX=[], inputArrayY=[];
+var broj_eksperimenata=null;
+var sumaX=null, sumaY=null;
+var umnozakXY=null, suma_umnozakXY=null;
+var umnozakX2=null, suma_x2=null;
+var umnozakY2=null, suma_y2=null;
+var a=null, b=null, b1=null;
+var sigmaA=null, sigmaY=null, korelacija=null;
+
+//-->
+</script>
+
+
+
+
+
+
+<p>Unesite broj eskperimenata:</p>
+<!--<input type="integer" id="eksperiment" step="any" onmouseleave="disable()"/>		-->
+
+<select id="eksperiment" onclick="postavi_broj_eksperimenata()" >
+	<option value="1" selected>1</option>
+	<option value="2">2</option>
+	<option value="3">3</option>
+	<option value="4">4</option>
+	<option value="5">5</option>
+	<option value="6">6</option>
+	<option value="7">7</option>
+	<option value="8">8</option>
+	<option value="9">9</option>
+	<option value="10">10</option>
+</select>
+<br/><br/>
+
+
+<table border="2" cellspacing="5" cellpadding="3" align="left" width="1000" style="text-align: center">
+
+		<!-- 1. RED  -->
+		<tr>	
+				<td> <b>n</b>	</td>											<!--1. stupac -->
+				<td>	<b>x<sub>i</sub></b> </td>							<!--2. stupac -->
+				<td>	<b>y<sub>i</sub> </b> </td>                           <!--3. stupac -->
+                                <td>	<b>x<sub>i</sub></b>*<b>y<sub>i</sub> </b> </td>       <!--4. stupac -->
+                                <td>	<b>(x<sub>i</sub>)<sup>2</sup></b> </td>               <!--5. stupac -->
+                                <td>    <b>(y<sub>i</sub>)<sup>2</sup></b> </td>               <!--6. stupac -->
+		</tr>
+
+		<!-- 2. RED  -->
+		<tr>	
+				<td>1.</td>
+				<td>	<input type="integer" step="any" id="unosX0" tabindex="1"/>  </td>
+				<td>	<input type="integer" step="any" id="unosY0" tabindex="11"/>  </td>
+                                <td>	<input type="integer" id="citanje_umnozakXY0" readonly /> </td>
+				<td>	<input type="integer" id="citanje_x20" readonly /> </td>
+				<td>	<input type="integer" id="citanje_y20" readonly /> </td>
+            	
+		</tr>
+		
+		<!-- 3. RED  -->
+		<tr>	
+				<td>2.</td>
+				<td>	<input type="integer" step="any" id="unosX1" tabindex="2"/>  </td>	
+                                <td>	<input type="integer" step="any" id="unosY1" tabindex="12"/>  </td>
+                                <td>	<input type="integer" id="citanje_umnozakXY1" readonly /> </td>
+                                <td>	<input type="integer" id="citanje_x21" readonly /> </td>
+				<td>	<input type="integer" id="citanje_y21" readonly /> </td>
+                
+		</tr>
+		
+		<!-- 4. RED  -->
+		<tr>	
+				<td>3.</td>
+				<td>	<input type="integer" step="any" id="unosX2" tabindex="3"/>  </td>
+                                <td>	<input type="integer" step="any" id="unosY2" tabindex="13"/>  </td>
+				<td>	<input type="integer" id="citanje_umnozakXY2" readonly /> </td>
+				<td>	<input type="integer" id="citanje_x22" readonly /> </td>
+				<td>	<input type="integer" id="citanje_y22" readonly /> </td>
+                
+		</tr>
+		
+		<!-- 5. RED  -->
+		<tr>	
+				<td>4.</td>
+				<td>	<input type="integer" step="any" id="unosX3" tabindex="4"/>  </td>	
+                                <td>	<input type="integer" step="any" id="unosY3" tabindex="14"/>  </td>
+				<td>	<input type="integer" id="citanje_umnozakXY3" readonly /> </td>
+				<td>	<input type="integer" id="citanje_x23" readonly /> </td>
+				<td>	<input type="integer" id="citanje_y23" readonly /> </td>
+                
+		</tr>
+		
+		<!-- 6. RED  -->
+		<tr>	
+				<td>5.</td>
+				<td>	<input type="integer" step="any" id="unosX4" tabindex="5"/>  </td>				
+				<td>	<input type="integer" step="any" id="unosY4" tabindex="15"/>  </td>
+				<td>	<input type="integer" id="citanje_umnozakXY4" readonly /> </td>
+				<td>	<input type="integer" id="citanje_x24" readonly /> </td>
+				<td>	<input type="integer" id="citanje_y24" readonly /> </td>
+                
+		</tr>
+		
+		<!-- 7. RED  -->
+		<tr>	
+				<td>6.</td>
+				<td>	<input type="integer" step="any" id="unosX5" tabindex="6"/>  </td>			
+                                <td>	<input type="integer" step="any" id="unosY5" tabindex="16"/>  </td>
+				<td>	<input type="integer" id="citanje_umnozakXY5" readonly /> </td>
+				<td>	<input type="integer" id="citanje_x25" readonly /> </td>
+				<td>	<input type="integer" id="citanje_y25" readonly /> </td>
+                
+		</tr>
+		
+		<!-- 8. RED  -->
+		<tr>	
+				<td>7.</td>
+				<td>	<input type="integer" step="any" id="unosX6" tabindex="7"/>  </td>		
+                                <td>	<input type="integer" step="any" id="unosY6" tabindex="17"/>  </td>
+				<td>	<input type="integer" id="citanje_umnozakXY6" readonly /> </td>
+				<td>	<input type="integer" id="citanje_x26" readonly /> </td>
+				<td>	<input type="integer" id="citanje_y26" readonly /> </td>
+                
+		</tr>
+		
+		<!-- 9. RED  -->
+		<tr>	
+				<td>8.</td>
+				<td>	<input type="integer" step="any" id="unosX7" tabindex="8"/>  </td>
+				<td>	<input type="integer" step="any" id="unosY7" tabindex="18"/>  </td>
+				<td>	<input type="integer" id="citanje_umnozakXY7" readonly /> </td>
+				<td>	<input type="integer" id="citanje_x27" readonly /> </td>
+				<td>	<input type="integer" id="citanje_y27" readonly /> </td>
+                
+		</tr>
+		
+		<!-- 10. RED  -->
+		<tr>	
+				<td>9.</td>
+				<td>	<input type="integer" step="any" id="unosX8" tabindex="9"/>  </td>
+                                <td>	<input type="integer" step="any" id="unosY8" tabindex="19"/>  </td>
+				<td>	<input type="integer" id="citanje_umnozakXY8" readonly /> </td>
+				<td>	<input type="integer" id="citanje_x28" readonly /> </td>
+				<td>	<input type="integer" id="citanje_y28" readonly /> </td>
+                
+		</tr>
+		
+		<!-- 11. RED  -->
+		<tr>	
+				<td>10.</td>
+				<td>	<input type="integer" step="any" id="unosX9" tabindex="10"/>  </td>
+                                <td>	<input type="integer" step="any" id="unosY9" tabindex="20"/>  </td>
+				<td>	<input type="integer" id="citanje_umnozakXY9" readonly /> </td>
+				<td>	<input type="integer" id="citanje_x29" readonly /> </td>
+				<td>	<input type="integer" id="citanje_y29" readonly /> </td>
+                
+		</tr>
+		
+		<!-- 12. RED; ujedno i zadnji red gdje su rezultati -->
+		<tr>	
+				<td> </td>
+				<td><label>S<sub>x</sub> =</label> <input type="integer" id="citanje_sumaX" readonly/>  </td>
+                                <td><label>S<sub>y</sub> =</label> <input type="integer" id="citanje_sumaY" readonly/></td>
+                                <td><label>S<sub>xy</sub> =</label> <input type="integer" id="citanje_suma_umnozakXY" readonly/>  </td>
+				<td><label>S<sub>x<sup>2</sup></sub> =</label> <input type="integer" id="citanje_suma_umnozakX2" readonly/>  </td>
+				<td><label>S<sub>y<sup>2</sup></sub> =</label> <input type="integer" id="citanje_suma_umnozakY2" readonly/>  </td>
+                                <td><label>(S<sub>x</sub>)<sup>2</sup> =</label> <input type="integer" id="citanje_suma2_x" readonly/> </td>
+                                <td><label>(S<sub>y</sub>)<sup>2</sup> =</label> <input type="integer" id="citanje_suma2_y" readonly/> </td>
+		</tr>
+</table>
+		
+<br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/>
+
+<div class="racunanje1">
+
+		<button type="button" id="submit" onclick="tipka_izracunaj()" tabindex="21">Izračunaj</button>
+		<br/> 
+		<label>Koeficijent smjera regresijskog pravca:   </label> <label> <b>a = </b> </label> <input type="integer" id="citanje_koeficijenta_smjera_regresijskog_pravca" readonly/> 
+		<br/> 
+		<label>Odsječak pravca na osi ordinata:   </label> <label> <b>b = </b> </label> <input type="integer" id="citanje_odsjecka_pravca_na_osi_ordinata" readonly/> 
+		<br/> 
+		<label>Mjera nepouzdanosti za koeficijent smjera pravca:  </label> <label> <b>	&#963<sub>a</sub> = </b> </label> <input type="integer" id="citanje_mjera_nepouzdanosti_za_koeficijent_smjera_pravca" readonly/> 
+		<br/>
+		<label>Mjera nepouzdanosti za odsječak na osi ordinata:  </label> <label> <b>	&#963<sub>y</sub> = </b> </label> <input type="integer" id="citanje_mjera_nepouzdanosti_za_odsječak_na_osi_ordinata" readonly/> 
+		<br/>
+		<label>Koeficijent korelacije  </label> <label> <b>R = </b> </label> <input type="integer" id="citanje_koeficijent_korelacije" readonly/> 
+		<br/>
+</div>
+
+	
+</body>
+
+
+
+</html>

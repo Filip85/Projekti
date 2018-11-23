@@ -1,0 +1,19 @@
+c:\users\gajari\documents\visual studio 2015\Projects\Krizic\Krizic\bin\Debug\Krizic.exe.config
+c:\users\gajari\documents\visual studio 2015\Projects\Krizic\Krizic\bin\Debug\Krizic.exe
+c:\users\gajari\documents\visual studio 2015\Projects\Krizic\Krizic\bin\Debug\Krizic.pdb
+c:\users\gajari\documents\visual studio 2015\Projects\Krizic\Krizic\obj\Debug\Krizic.csprojResolveAssemblyReference.cache
+c:\users\gajari\documents\visual studio 2015\Projects\Krizic\Krizic\obj\Debug\Krizic.Form1.resources
+c:\users\gajari\documents\visual studio 2015\Projects\Krizic\Krizic\obj\Debug\Krizic.Properties.Resources.resources
+c:\users\gajari\documents\visual studio 2015\Projects\Krizic\Krizic\obj\Debug\Krizic.csproj.GenerateResource.Cache
+c:\users\gajari\documents\visual studio 2015\Projects\Krizic\Krizic\obj\Debug\Krizic.exe
+c:\users\gajari\documents\visual studio 2015\Projects\Krizic\Krizic\obj\Debug\Krizic.pdb
+E:\Visula Studio\Krizic\Krizic\bin\Debug\Krizic.exe.config
+E:\Visula Studio\Krizic\Krizic\bin\Debug\Krizic.exe
+E:\Visula Studio\Krizic\Krizic\bin\Debug\Krizic.pdb
+E:\Visula Studio\Krizic\Krizic\obj\Debug\Krizic.csprojAssemblyReference.cache
+E:\Visula Studio\Krizic\Krizic\obj\Debug\Krizic.Form1.resources
+E:\Visula Studio\Krizic\Krizic\obj\Debug\Krizic.Properties.Resources.resources
+E:\Visula Studio\Krizic\Krizic\obj\Debug\Krizic.csproj.GenerateResource.cache
+E:\Visula Studio\Krizic\Krizic\obj\Debug\Krizic.csproj.CoreCompileInputs.cache
+E:\Visula Studio\Krizic\Krizic\obj\Debug\Krizic.exe
+E:\Visula Studio\Krizic\Krizic\obj\Debug\Krizic.pdb

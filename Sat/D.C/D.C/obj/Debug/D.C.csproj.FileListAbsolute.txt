@@ -1,0 +1,24 @@
+c:\users\gajari\documents\visual studio 2015\Projects\D.C\D.C\bin\Debug\D.C.exe.config
+C:\Users\Gajari\Documents\Visual Studio 2015\Projects\D.C\D.C\obj\Debug\D.C.csprojResolveAssemblyReference.cache
+C:\Users\Gajari\Documents\Visual Studio 2015\Projects\D.C\D.C\obj\Debug\D.C.Form1.resources
+C:\Users\Gajari\Documents\Visual Studio 2015\Projects\D.C\D.C\obj\Debug\D.C.Properties.Resources.resources
+C:\Users\Gajari\Documents\Visual Studio 2015\Projects\D.C\D.C\obj\Debug\D.C.csproj.GenerateResource.Cache
+C:\Users\Gajari\Documents\Visual Studio 2015\Projects\D.C\D.C\bin\Debug\D.C.exe
+C:\Users\Gajari\Documents\Visual Studio 2015\Projects\D.C\D.C\bin\Debug\D.C.pdb
+C:\Users\Gajari\Documents\Visual Studio 2015\Projects\D.C\D.C\bin\Debug\CircularProgressBar.dll
+C:\Users\Gajari\Documents\Visual Studio 2015\Projects\D.C\D.C\bin\Debug\WinFormAnimation.dll
+C:\Users\Gajari\Documents\Visual Studio 2015\Projects\D.C\D.C\bin\Debug\CircularProgressBar.xml
+C:\Users\Gajari\Documents\Visual Studio 2015\Projects\D.C\D.C\obj\Debug\D.C.exe
+C:\Users\Gajari\Documents\Visual Studio 2015\Projects\D.C\D.C\obj\Debug\D.C.pdb
+C:\Users\Gajari\Desktop\Sat\D.C\D.C\bin\Debug\D.C.exe.config
+C:\Users\Gajari\Desktop\Sat\D.C\D.C\obj\Debug\D.C.exe
+C:\Users\Gajari\Desktop\Sat\D.C\D.C\obj\Debug\D.C.pdb
+C:\Users\Gajari\Desktop\Sat\D.C\D.C\obj\Debug\D.C.csprojResolveAssemblyReference.cache
+C:\Users\Gajari\Desktop\Sat\D.C\D.C\obj\Debug\D.C.Form1.resources
+C:\Users\Gajari\Desktop\Sat\D.C\D.C\obj\Debug\D.C.Properties.Resources.resources
+C:\Users\Gajari\Desktop\Sat\D.C\D.C\obj\Debug\D.C.csproj.GenerateResource.Cache
+C:\Users\Gajari\Desktop\Sat\D.C\D.C\bin\Debug\D.C.exe
+C:\Users\Gajari\Desktop\Sat\D.C\D.C\bin\Debug\D.C.pdb
+C:\Users\Gajari\Desktop\Sat\D.C\D.C\bin\Debug\CircularProgressBar.dll
+C:\Users\Gajari\Desktop\Sat\D.C\D.C\bin\Debug\WinFormAnimation.dll
+C:\Users\Gajari\Desktop\Sat\D.C\D.C\bin\Debug\CircularProgressBar.xml

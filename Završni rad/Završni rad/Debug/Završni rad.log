@@ -1,0 +1,11 @@
+﻿  SPN1.cpp
+  FS.cpp
+c:\users\gajari\documents\visual studio 2015\projects\završni rad\završni rad\fs.cpp(40): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\gajari\documents\visual studio 2015\projects\završni rad\završni rad\fs.cpp(15): warning C4101: 'z': unreferenced local variable
+c:\users\gajari\documents\visual studio 2015\projects\završni rad\završni rad\fs.cpp(15): warning C4101: 'max_p': unreferenced local variable
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  RR.cpp
+  FCFS.cpp
+  Završni rad.vcxproj -> C:\Users\Gajari\Documents\Visual Studio 2015\Projects\Završni rad\Debug\Završni rad.exe
+  Završni rad.vcxproj -> C:\Users\Gajari\Documents\Visual Studio 2015\Projects\Završni rad\Debug\Završni rad.pdb (Full PDB)

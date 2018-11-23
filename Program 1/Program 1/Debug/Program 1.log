@@ -1,0 +1,4 @@
+﻿  P 1.cpp
+c:\users\gajari\documents\visual studio 2015\projects\program 1\program 1\p 1.cpp(98): warning C4101: 'pro': unreferenced local variable
+  Program 1.vcxproj -> c:\users\gajari\documents\visual studio 2015\Projects\Program 1\Debug\Program 1.exe
+  Program 1.vcxproj -> c:\users\gajari\documents\visual studio 2015\Projects\Program 1\Debug\Program 1.pdb (Full PDB)

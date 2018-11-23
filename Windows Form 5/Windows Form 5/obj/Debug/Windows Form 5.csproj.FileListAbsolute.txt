@@ -1,0 +1,19 @@
+c:\users\gajari\documents\visual studio 2015\Projects\Windows Form 5\Windows Form 5\bin\Debug\Windows Form 5.exe.config
+c:\users\gajari\documents\visual studio 2015\Projects\Windows Form 5\Windows Form 5\bin\Debug\Windows Form 5.exe
+c:\users\gajari\documents\visual studio 2015\Projects\Windows Form 5\Windows Form 5\bin\Debug\Windows Form 5.pdb
+c:\users\gajari\documents\visual studio 2015\Projects\Windows Form 5\Windows Form 5\obj\Debug\Windows Form 5.csprojResolveAssemblyReference.cache
+c:\users\gajari\documents\visual studio 2015\Projects\Windows Form 5\Windows Form 5\obj\Debug\Windows_Form_5.Form1.resources
+c:\users\gajari\documents\visual studio 2015\Projects\Windows Form 5\Windows Form 5\obj\Debug\Windows_Form_5.Properties.Resources.resources
+c:\users\gajari\documents\visual studio 2015\Projects\Windows Form 5\Windows Form 5\obj\Debug\Windows Form 5.csproj.GenerateResource.Cache
+c:\users\gajari\documents\visual studio 2015\Projects\Windows Form 5\Windows Form 5\obj\Debug\Windows Form 5.exe
+c:\users\gajari\documents\visual studio 2015\Projects\Windows Form 5\Windows Form 5\obj\Debug\Windows Form 5.pdb
+E:\Visula Studio\Windows Form 5\Windows Form 5\bin\Debug\Windows Form 5.exe.config
+E:\Visula Studio\Windows Form 5\Windows Form 5\bin\Debug\Windows Form 5.exe
+E:\Visula Studio\Windows Form 5\Windows Form 5\bin\Debug\Windows Form 5.pdb
+E:\Visula Studio\Windows Form 5\Windows Form 5\obj\Debug\Windows Form 5.csprojAssemblyReference.cache
+E:\Visula Studio\Windows Form 5\Windows Form 5\obj\Debug\Windows_Form_5.Form1.resources
+E:\Visula Studio\Windows Form 5\Windows Form 5\obj\Debug\Windows_Form_5.Properties.Resources.resources
+E:\Visula Studio\Windows Form 5\Windows Form 5\obj\Debug\Windows Form 5.csproj.GenerateResource.cache
+E:\Visula Studio\Windows Form 5\Windows Form 5\obj\Debug\Windows Form 5.csproj.CoreCompileInputs.cache
+E:\Visula Studio\Windows Form 5\Windows Form 5\obj\Debug\Windows Form 5.exe
+E:\Visula Studio\Windows Form 5\Windows Form 5\obj\Debug\Windows Form 5.pdb

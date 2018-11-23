@@ -1,0 +1,433 @@
+﻿<!doctype html>
+
+<html>
+
+
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+
+
+
+
+<style>
+   
+    table{
+               border-collapse: collapse
+    }
+    table th
+    { 
+		text-align: center;
+    }   
+    
+    table td
+    {
+		border: 1px solid #e3e3e3;
+		padding: 5px 8px;
+                background-color: #808080;
+                color: #FFF;
+    }
+	.racunanje1{
+		
+		border: 1px solid; 
+		padding: 5px 5px;
+                background-color: #808080;
+                color: #FFF;
+	}
+</style>
+
+
+
+
+
+<script type="text/JavaScript">
+<!--
+
+window.onload=postavi_broj_eksperimenata;		//kada se pokrene webstranica, automaski da pokrene funkciju postavi_broj_eksperimenata, a default-na vrijednost select box-a za ekperimente je 1
+
+
+function floatProvjera(inputBroj){
+		var filter= /^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$/ ;
+		if(inputBroj.match(filter)){
+			return true;
+		}
+		else{
+			return false;
+		}
+}
+
+
+
+function postavi_broj_eksperimenata(){
+
+		broj_eksperimenata=document.getElementById("eksperiment").value;
+		
+		//Uključivanje-isključivanje kućica prvog stupca za unos elemenata
+		for(i=broj_eksperimenata;i<10;i++){
+								
+				document.getElementById("unos"+i).setAttribute("disabled", true);		//prvi stupac
+				document.getElementById("razlika_apsolutne_vrijednosti"+i).setAttribute("disabled",true);  //razlika apsolutne vrijednosti 
+				document.getElementById("apsolutna_razlika"+i).setAttribute("disabled",true);
+				document.getElementById("kvadratno_odstupanje"+i).setAttribute("disabled",true);
+				
+				
+				//npr. ako se unese 10 eksperimenata i njihove vrijednosti i onda kojim slučajem nastane greška da ih je trebalo biti manje, odabirnom na manji broj eksperimenta će se "izbrisati" vrijednosti tih ćelija iako ne bi ulazile u računanje
+				document.getElementById("unos"+i).value="";									//prvi stupac
+				document.getElementById("razlika_apsolutne_vrijednosti"+i).value="";	  //razlika apsolutne vrijednosti 
+				document.getElementById("apsolutna_razlika"+i).value="";	
+				document.getElementById("kvadratno_odstupanje"+i).value="";	
+				
+		}		
+		
+		for(i=0;i<broj_eksperimenata;i++){
+						
+							if(document.getElementById("unos"+i).getAttribute("disabled")=='true'){
+									document.getElementById("unos"+i).disabled=false;			//zbog nekog razloga ova odbija raditi s ovako definiranim kodom:   document.getElementById("unos"+i).setAttribute("disabled", false);
+							}
+							if(document.getElementById("razlika_apsolutne_vrijednosti"+i).getAttribute("disabled")=='true'){
+									document.getElementById("razlika_apsolutne_vrijednosti"+i).disabled=false;
+							}
+							if(document.getElementById("apsolutna_razlika"+i).getAttribute("disabled")=='true'){
+									document.getElementById("apsolutna_razlika"+i).disabled=false;
+							}
+							if(document.getElementById("kvadratno_odstupanje"+i).getAttribute("disabled")=='true'){
+									document.getElementById("kvadratno_odstupanje"+i).disabled=false;
+							}
+		}
+		//kraj bloka uključivanje-isključivanje ćelija prvog stupca za unos elemenata
+}
+
+
+
+
+
+function tipka_izracunaj(){
+	
+				//Unos brojeva iz polja za unos, tj. prvog stupca u polje s vrijednostima
+				for(i=0; i<broj_eksperimenata;i++){
+				
+				
+					if(floatProvjera(document.getElementById("unos"+i).value)==false){
+							alert("Niste unijeli brojčane vrijednosti odvojene decimalnom točkom. \n                                Molimo provjerite unos.");
+							break;
+					}
+					inputArray[i]=parseFloat(document.getElementById("unos"+i).value);
+				}
+				
+				
+				
+				
+				//aritmetička sredina
+				for(i=0; i<broj_eksperimenata;i++){
+					aritmeticka_sredina+=inputArray[i];
+					suma_eksperiment_vrijednost+=inputArray[i];
+				}
+				aritmeticka_sredina=aritmeticka_sredina/broj_eksperimenata;
+				citanje1_text=aritmeticka_sredina;
+				//aritmeticka_sredina=0;
+				document.getElementById("citanje1").value=citanje1_text.toString();		//postavljanje vrijednosti aritmetičke sredine u textBox
+				
+				citanje_sume_eksperimenta=suma_eksperiment_vrijednost;
+				document.getElementById("suma_eksperiment").value=citanje_sume_eksperimenta.toString();  //postavljanje sume vrijednosti eksperimanata u odgovarajući textBox
+				
+				
+				//sve vezano za 3. i 4. stupac 
+				deltaXmax=0;
+				for(i=0;i<broj_eksperimenata;i++){
+						document.getElementById("razlika_apsolutne_vrijednosti"+i).value=(aritmeticka_sredina-inputArray[i]).toString(); //razlika apsolutne vrijendosti i izmjerene vrijednosti eskperimenta
+						apsolutna_razlika_polje[i]=Math.abs((aritmeticka_sredina-inputArray[i])).toString(); //apsolutna razlika apsolutne vrijendosti i izmjerene vrijednosti eskperimenta
+						document.getElementById("apsolutna_razlika"+i).value=apsolutna_razlika_polje[i].toString(); //apsolutna razlika apsolutne vrijendosti i izmjerene vrijednosti eskperimenta
+						
+						kvadratno_odstupanje_broj=Math.pow(apsolutna_razlika_polje[i],2);
+						document.getElementById("kvadratno_odstupanje"+i).value=kvadratno_odstupanje_broj.toString();	//kvadratno odstupanje za svaki red
+						suma_kvadratno_odstupanje+=kvadratno_odstupanje_broj;		//suma za kvadratno odstupanje
+						
+						if(Math.abs((aritmeticka_sredina-inputArray[i]))>deltaXmax){
+								deltaXmax=Math.abs((aritmeticka_sredina-inputArray[i]));
+						}
+						suma_deltaX+=Math.abs((aritmeticka_sredina-inputArray[i]));
+						
+				}
+				
+				document.getElementById("suma_apsolutna_vrijednost").value=suma_deltaX.toString();   //suma delte X
+				
+				
+				deltaX=(suma_deltaX/broj_eksperimenata);
+				document.getElementById("odstupanje").value=deltaX.toString();   						//odstupanje deltaX
+				
+				document.getElementById("najvece_odstupanje").value=deltaXmax.toString();				//odstupanje deltaXmax
+				
+				document.getElementById("relativna_pogreska").value=((deltaX/aritmeticka_sredina)*100).toString();  //relativna pogreška
+				
+				document.getElementById("najveca_relativna_pogreska").value=((deltaXmax/aritmeticka_sredina)*100).toString();	//najveća relativna pogreška
+				
+				document.getElementById("citanje_suma_kvadratno_odstupanje").value=suma_kvadratno_odstupanje.toString();
+				
+				
+				//standardna devijacija i standardno odstupanje
+				standardna_devijacija=Math.sqrt(suma_kvadratno_odstupanje/(broj_eksperimenata-1));
+				standardna_pogreska=Math.sqrt(suma_kvadratno_odstupanje/(broj_eksperimenata*(broj_eksperimenata-1)));
+				
+				document.getElementById("citanje_standardna_devijacija").value=standardna_devijacija.toString();	//postavljanje standardne devijacije u textbox
+				document.getElementById("citanje_standardna_pogreska").value=standardna_pogreska.toString();		//postavljanje standardne pogreške u odgovarajući textbox	
+				document.getElementById("citanje_relativna_nepouzdanost_mjerenja").value=((standardna_pogreska/aritmeticka_sredina)*100).toString();
+
+				
+
+				
+			aritmeticka_sredina=0;
+			suma_eksperiment_vrijednost=0;
+			suma_deltaX=0;
+			deltaXmax=0;
+			suma_kvadratno_odstupanje=0;
+			citanje_sume_eksperimenta=0;
+			suma_eksperiment_vrijednost=0;
+			standardna_devijacija=0;
+			standardna_pogreska=0;
+			relativna_nepouzdanost_mjerenja=0;
+			
+			
+			
+			
+}
+//-->
+</script>
+</head>
+
+
+
+
+
+<body style="background-color:#f7f7f7">
+
+
+
+<script type="text/JavaScript">
+<!--
+//DEFINIRANJE LOKALNIH VARIJABLI ZA IZRAČUNAVANJE
+
+var i=0,j=0;
+var inputArray=[],array_deltaX=[];
+var broj_eksperimenata=null;
+var broj_kucica_za_disable=null;
+var aritmeticka_sredina=null;
+var citanje1_text=null,citanje_sume_eksperimenta=null;
+var apsolutna_razlika_polje=[], suma_kvadratno_odstupanje=null, kvadratno_odstupanje_broj; //sve za predzadnji stupac
+var suma_eksperiment_vrijednost=null,suma_deltaX=null;
+var deltaX=null, deltaXmax=null;
+var standardna_devijacija=null, standardna_pogreska=null;					//sve za zadnji stupac
+var relativna_nepouzdanost_mjerenja=null;
+
+//-->
+</script>
+
+
+
+
+
+
+<p>Unesite broj eskperimenata:</p>
+<!--<input type="integer" id="eksperiment" step="any" onmouseleave="disable()"/>		-->
+
+<select id="eksperiment" onclick="postavi_broj_eksperimenata()" >
+	<option value="1" selected>1</option>
+	<option value="2">2</option>
+	<option value="3">3</option>
+	<option value="4">4</option>
+	<option value="5">5</option>
+	<option value="6">6</option>
+	<option value="7">7</option>
+	<option value="8">8</option>
+	<option value="9">9</option>
+	<option value="10">10</option>
+</select>
+<br/><br/>
+
+
+<table border="2" cellspacing="5" cellpadding="3" align="left" width="1000" style="text-align: center">
+
+		<!-- 1. RED  -->
+		<tr>	
+				<td> <b>n</b> </td>											<!--1. stupac -->
+				<td><b>x<sub>i</sub></b></td>								<!--2. stupac -->
+				<td><b>x&#772 </b></td>                                     <!--3. stupac -->
+                <td><b>x&#772-x<sub>i</sub> </b></td>                       <!--4. stupac -->
+                <td><b>|x&#772-x<sub>i</sub>|</b></td>                      <!--5. stupac -->
+                <td><b>&#916x, &#916x<sub>max</sub></b></td>                <!--6. stupac -->
+                <td><b>r<sub>x</sub>, r<sub>max</sub></b></td>              <!--7. stupac -->
+                <td><b>|x&#772-x<sub>i</sub>|<sup>2</sup> </b></td>         <!--8. stupac -->
+                <td><b>&sigma;</b>, <b><i>M</i></b></td>                    <!--9. stupac -->
+		</tr>
+
+		<!-- 2. RED  -->
+		<tr>	
+				<td>1.</td>
+				<td><input type="integer" step="any" name="unos0" id="unos0" tabindex="1" />  </td>
+				<td rowspan="11"> x&#772= <input type="integer" name="citanje1" id="citanje1" readonly /> </td>
+                <td><input type="integer" id="razlika_apsolutne_vrijednosti0" readonly /> </td>
+                <td><input type="integer" id="apsolutna_razlika0"readonly /> </td>
+                <td rowspan="11"> &#916x= <input type="integer" id="odstupanje" readonly /> 
+				<br/><br/>	&#916x<sub>max</sub>= <input type="integer" id="najvece_odstupanje" readonly /> </td>
+                <td rowspan="11"> r<sub>x</sub>[%]= <input type="integer" id="relativna_pogreska"readonly /> 
+				<br/><br/> r<sub>max</sub>[%]= <input type="integer" id="najveca_relativna_pogreska" readonly /> </td>
+                <td><input type="integer" id="kvadratno_odstupanje0" readonly /> </td>
+                <td rowspan="11"> &sigma;= <input type="integer" id="citanje_standardna_devijacija" readonly /> 
+				<br/><br/> <i>M</i>= <input type="integer" id="citanje_standardna_pogreska" readonly /> </td>
+		</tr>
+		
+		<!-- 3. RED  -->
+		<tr>	
+				<td>2.</td>
+				<td><input type="integer" step="any" name="unos1" id="unos1" tabindex="2"/>  </td>
+				
+                <td><input type="integer" id="razlika_apsolutne_vrijednosti1" readonly/>  </td>
+                <td><input type="integer" id="apsolutna_razlika1"readonly /> </td>
+               
+                <td><input type="integer" id="kvadratno_odstupanje1" readonly /> </td>
+                
+		</tr>
+		
+		<!-- 4. RED  -->
+		<tr>	
+				<td>3.</td>
+				<td><input type="integer" step="any" name="unos2" id="unos2" tabindex="3"/>  </td>
+				
+                <td><input type="integer" id="razlika_apsolutne_vrijednosti2" readonly/>  </td>
+                <td><input type="integer" id="apsolutna_razlika2"readonly /> </td>
+               
+                <td><input type="integer" id="kvadratno_odstupanje2" readonly /> </td>
+                
+		</tr>
+		
+		<!-- 5. RED  -->
+		<tr>	
+				<td>4.</td>
+				<td><input type="integer" step="any" name="unos3" id="unos3" tabindex="4"/>  </td>
+				
+                <td><input type="integer" id="razlika_apsolutne_vrijednosti3" readonly/>  </td>
+                <td><input type="integer" id="apsolutna_razlika3"readonly /> </td>
+               
+                <td><input type="integer" id="kvadratno_odstupanje3" readonly /> </td>
+                
+		</tr>
+		
+		<!-- 6. RED  -->
+		<tr>	
+				<td>5.</td>
+				<td><input type="integer" step="any" name="unos4" id="unos4" tabindex="5"/>  </td>
+				
+                <td><input type="integer" id="razlika_apsolutne_vrijednosti4" readonly/>  </td>
+                <td><input type="integer" id="apsolutna_razlika4"readonly /> </td>
+               
+                <td><input type="integer" id="kvadratno_odstupanje4" readonly /> </td>
+                
+		</tr>
+		
+		<!-- 7. RED  -->
+		<tr>	
+				<td>6.</td>
+				<td><input type="integer" step="any" name="unos5" id="unos5" tabindex="6"/>  </td>
+				
+                <td><input type="integer" id="razlika_apsolutne_vrijednosti5" readonly/>  </td>
+                <td><input type="integer" id="apsolutna_razlika5"readonly /> </td>
+               
+                <td><input type="integer" id="kvadratno_odstupanje5" readonly /> </td>
+                
+		</tr>
+		
+		<!-- 8. RED  -->
+		<tr>	
+				<td>7.</td>
+				<td><input type="integer" step="any" name="unos6" id="unos6" tabindex="7"/>  </td>
+				
+                <td><input type="integer" id="razlika_apsolutne_vrijednosti6" readonly/>  </td>
+                <td><input type="integer" id="apsolutna_razlika6"readonly /> </td>
+               
+                <td><input type="integer" id="kvadratno_odstupanje6" readonly /> </td>
+                
+		</tr>
+		
+		<!-- 9. RED  -->
+		<tr>	
+				<td>8.</td>
+				<td><input type="integer" step="any" name="unos7" id="unos7" tabindex="8"/>  </td>
+				
+                <td><input type="integer" id="razlika_apsolutne_vrijednosti7" readonly/>  </td>
+                <td><input type="integer" id="apsolutna_razlika7"readonly /> </td>
+               
+                <td><input type="integer" id="kvadratno_odstupanje7" readonly /> </td>
+                
+		</tr>
+		
+		<!-- 10. RED  -->
+		<tr>	
+				<td>9.</td>
+				<td><input type="integer" step="any" name="unos8" id="unos8" tabindex="9"/>  </td>
+				
+                <td><input type="integer" id="razlika_apsolutne_vrijednosti8" readonly/>  </td>
+                <td><input type="integer" id="apsolutna_razlika8"readonly /> </td>
+               
+                <td><input type="integer" id="kvadratno_odstupanje8" readonly /> </td>
+                
+		</tr>
+		
+		<!-- 11. RED  -->
+		<tr>	
+				<td>10.</td>
+				<td><input type="integer" step="any" name="unos9" id="unos9" tabindex="10"/>  </td>
+				
+                <td><input type="integer" id="razlika_apsolutne_vrijednosti9" readonly/>  </td>
+                <td><input type="integer" id="apsolutna_razlika9"readonly /> </td>
+               
+                <td><input type="integer" id="kvadratno_odstupanje9" readonly /> </td>
+                
+		</tr>
+		
+		<!-- 12. RED; ujedno i zadnji red gdje su rezultati -->
+		<tr>	
+				<td>&#8721 </td>
+				<td><input type="integer" id="suma_eksperiment" readonly/>  </td>
+                <td><b>0</b></td>
+                <td><input type="integer" id="suma_apsolutna_vrijednost" readonly/></td>
+                   
+                <td><input type="integer" id="citanje_suma_kvadratno_odstupanje" readonly/> </td>
+                
+		</tr>
+</table>
+		
+<br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/>
+
+<div class="racunanje1">
+
+		<button type="button" id="submit" onclick="tipka_izracunaj()" tabindex="11">Izračunaj</button>
+		<br/> 
+		<label>Relativna nepouzdanost mjerenja:   </label> <label> <b>R<sub>m</sub>[%] = </b> </label> <input type="integer" type="text" id="citanje_relativna_nepouzdanost_mjerenja" readonly/> 
+</div>
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+</body>
+
+
+
+
+
+
+
+</html>
