@@ -1,0 +1,10 @@
+C:\Users\Filip\source\repos\1.2.AplikacijaSPeriodičnimUčitavanjemPodataka\1.2.AplikacijaSPeriodičnimUčitavanjemPodataka\bin\Debug\1.2.AplikacijaSPeriodičnimUčitavanjemPodataka.exe.config
+C:\Users\Filip\source\repos\1.2.AplikacijaSPeriodičnimUčitavanjemPodataka\1.2.AplikacijaSPeriodičnimUčitavanjemPodataka\bin\Debug\1.2.AplikacijaSPeriodičnimUčitavanjemPodataka.exe
+C:\Users\Filip\source\repos\1.2.AplikacijaSPeriodičnimUčitavanjemPodataka\1.2.AplikacijaSPeriodičnimUčitavanjemPodataka\bin\Debug\1.2.AplikacijaSPeriodičnimUčitavanjemPodataka.pdb
+C:\Users\Filip\source\repos\1.2.AplikacijaSPeriodičnimUčitavanjemPodataka\1.2.AplikacijaSPeriodičnimUčitavanjemPodataka\obj\Debug\1.2.AplikacijaSPeriodičnimUčitavanjemPodataka.csprojAssemblyReference.cache
+C:\Users\Filip\source\repos\1.2.AplikacijaSPeriodičnimUčitavanjemPodataka\1.2.AplikacijaSPeriodičnimUčitavanjemPodataka\obj\Debug\_1._2.AplikacijaSPeriodičnimUčitavanjemPodataka.Form1.resources
+C:\Users\Filip\source\repos\1.2.AplikacijaSPeriodičnimUčitavanjemPodataka\1.2.AplikacijaSPeriodičnimUčitavanjemPodataka\obj\Debug\_1._2.AplikacijaSPeriodičnimUčitavanjemPodataka.Properties.Resources.resources
+C:\Users\Filip\source\repos\1.2.AplikacijaSPeriodičnimUčitavanjemPodataka\1.2.AplikacijaSPeriodičnimUčitavanjemPodataka\obj\Debug\1.2.AplikacijaSPeriodičnimUčitavanjemPodataka.csproj.GenerateResource.cache
+C:\Users\Filip\source\repos\1.2.AplikacijaSPeriodičnimUčitavanjemPodataka\1.2.AplikacijaSPeriodičnimUčitavanjemPodataka\obj\Debug\1.2.AplikacijaSPeriodičnimUčitavanjemPodataka.csproj.CoreCompileInputs.cache
+C:\Users\Filip\source\repos\1.2.AplikacijaSPeriodičnimUčitavanjemPodataka\1.2.AplikacijaSPeriodičnimUčitavanjemPodataka\obj\Debug\1.2.AplikacijaSPeriodičnimUčitavanjemPodataka.exe
+C:\Users\Filip\source\repos\1.2.AplikacijaSPeriodičnimUčitavanjemPodataka\1.2.AplikacijaSPeriodičnimUčitavanjemPodataka\obj\Debug\1.2.AplikacijaSPeriodičnimUčitavanjemPodataka.pdb
