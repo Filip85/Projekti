@@ -1,0 +1,9 @@
+C:\Users\Filip\source\repos\1. RSSV\1. RSSV\bin\Debug\_1.RSSV.exe.config
+C:\Users\Filip\source\repos\1. RSSV\1. RSSV\bin\Debug\_1.RSSV.exe
+C:\Users\Filip\source\repos\1. RSSV\1. RSSV\bin\Debug\_1.RSSV.pdb
+C:\Users\Filip\source\repos\1. RSSV\1. RSSV\obj\Debug\_1.RSSV.Form1.resources
+C:\Users\Filip\source\repos\1. RSSV\1. RSSV\obj\Debug\_1.RSSV.Properties.Resources.resources
+C:\Users\Filip\source\repos\1. RSSV\1. RSSV\obj\Debug\1. RSSV.csproj.GenerateResource.cache
+C:\Users\Filip\source\repos\1. RSSV\1. RSSV\obj\Debug\1. RSSV.csproj.CoreCompileInputs.cache
+C:\Users\Filip\source\repos\1. RSSV\1. RSSV\obj\Debug\_1.RSSV.exe
+C:\Users\Filip\source\repos\1. RSSV\1. RSSV\obj\Debug\_1.RSSV.pdb
