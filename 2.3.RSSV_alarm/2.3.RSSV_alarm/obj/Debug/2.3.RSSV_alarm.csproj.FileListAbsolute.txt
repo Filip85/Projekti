@@ -1,0 +1,9 @@
+C:\Users\Filip\source\repos\2.3.RSSV_alarm\2.3.RSSV_alarm\bin\Debug\2.3.RSSV_alarm.exe.config
+C:\Users\Filip\source\repos\2.3.RSSV_alarm\2.3.RSSV_alarm\bin\Debug\2.3.RSSV_alarm.exe
+C:\Users\Filip\source\repos\2.3.RSSV_alarm\2.3.RSSV_alarm\bin\Debug\2.3.RSSV_alarm.pdb
+C:\Users\Filip\source\repos\2.3.RSSV_alarm\2.3.RSSV_alarm\obj\Debug\_2._3.RSSV_alarm.Form1.resources
+C:\Users\Filip\source\repos\2.3.RSSV_alarm\2.3.RSSV_alarm\obj\Debug\_2._3.RSSV_alarm.Properties.Resources.resources
+C:\Users\Filip\source\repos\2.3.RSSV_alarm\2.3.RSSV_alarm\obj\Debug\2.3.RSSV_alarm.csproj.GenerateResource.cache
+C:\Users\Filip\source\repos\2.3.RSSV_alarm\2.3.RSSV_alarm\obj\Debug\2.3.RSSV_alarm.csproj.CoreCompileInputs.cache
+C:\Users\Filip\source\repos\2.3.RSSV_alarm\2.3.RSSV_alarm\obj\Debug\2.3.RSSV_alarm.exe
+C:\Users\Filip\source\repos\2.3.RSSV_alarm\2.3.RSSV_alarm\obj\Debug\2.3.RSSV_alarm.pdb
